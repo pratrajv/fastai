@@ -2,7 +2,7 @@ Flask
 gunicorn
 numpy
 torch==0.4.1
-fastai==1.0.24
+fastai==1.0.52
 
 
 
