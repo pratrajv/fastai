@@ -4,8 +4,8 @@ import sys
 import os
 import glob
 import re
-from pathlib import Path
-
+import os.path
+import fetch_file as ff
 
 
 # Import fast.ai Library
@@ -21,13 +21,14 @@ from werkzeug.utils import secure_filename
 app = Flask(__name__)
 
 
-
 path = Path("path")
-classes = ['cleanwater', 'dirtywater']
+classes = ['black', 'grizzly', 'teddys']
 data2 = ImageDataBunch.single_from_classes(path, classes, tfms=get_transforms(), size=224).normalize(imagenet_stats)
 learn = create_cnn(data2, models.resnet34)
+file_id = '1iHHb6vBiJTwzDKb6rFJjwo2NT3p4Q7UC'
+dir = os.path.dirname(os.path.abspath(__file__)) + '/path/models/stage-2.pth'
+ff.download_file_from_google_drive(file_id, dir)
 learn.load('stage-2')
-
 
 
 
