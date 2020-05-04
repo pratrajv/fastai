@@ -9,8 +9,8 @@ import fetch_file as ff
 
 
 # Import fast.ai Library
-from fastai import *
 from fastai.vision import *
+#from torch.vision import *
 
 # Flask utils
 from flask import Flask, redirect, url_for, request, render_template
